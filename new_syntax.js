@@ -1,5 +1,4 @@
 "use strcit";
-const a = 5;
 const MIN_ZP = 6000 / 21;
 class UserClass {
   constructor(name, surName, age) {
