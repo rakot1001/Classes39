@@ -7,11 +7,22 @@ class UserClass {
     this.surName = surName;
     this.age = age;
   }
+  set FullName(newFullName) {
+    if (typeof newFullName !== "string") {
+      throw new TypeError();
+    }
+    const nameArray = newFullName.split(" ");
+    if (nameArray.length !== 2) {
+      throw new RangeError();
+    }
 
-  getFullName() {
+    this.name = nameArray[0];
+    this.surName = nameArray[1];
+  }
+  get FullName() {
     return `${this.name} ${this.surName}`;
   }
-  IsAdult() {
+  get IsAdult() {
     if (this.age >= 18) {
       return `${this.name} is ${this.age} old and he is adult`;
     }
@@ -31,8 +42,8 @@ class Worker {
     if (typeof workDays !== "number") {
       throw new TypeError("Parameters have unappropriate type");
     }
-    if (workDays < 0 || days > 31) {
-      throw new RangeError();
+    if (workDays < 0 || workDays > 31) {
+      throw new RangeError("Not range");
     }
     if (moneyForDay < 0) {
       throw new RangeError();
@@ -43,8 +54,8 @@ class Worker {
     this.moneyForDay = moneyForDay;
     this.workDays = workDays;
   }
-  set MoneyForDay(newMoneyForDay){
-    if ( typeof newMoneyForDay != "number") {
+  set moneyForDay(newMoneyForDay) {
+    if (typeof newMoneyForDay != "number") {
       throw new TypeError("Parameters have unappropriate type");
     }
     if (newMoneyForDay < 0) {
@@ -52,15 +63,28 @@ class Worker {
     }
     this._moneyForDay = newMoneyForDay;
   }
-  get moneyForDay(){
+  get moneyForDay() {
     return this._moneyForDay;
+  }
+
+  set workDays(newWorkDays) {
+    if (typeof newWorkDays != "number") {
+      throw new TypeError("Parameters have unappropriate type");
+    }
+    if (newWorkDays < 0) {
+      throw new RangeError();
+    }
+    this._workDays = newWorkDays;
+  }
+  get workDays() {
+    return this._workDays;
   }
 
   getMoneyForAllDays() {
     return `${this.moneyForDay * this.workDays} this worker have`;
   }
 }
-const worker1 = new Worker("Worker1", "W1", 120, 10);
+const worker1 = new Worker("Worker1", "W1", 21, 10);
 
 /* Собственный вес ownWeight */
 /*Масса топлива
