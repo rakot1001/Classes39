@@ -28,6 +28,9 @@ class UserClass {
     }
     return false;
   }
+  static isUser(obj) {
+    return obj instanceof User;
+  }
 }
 
 const user1 = new UserClass("User1", "Test", 21);
