@@ -97,7 +97,7 @@ class Fuel {
     this.volume = volume;
     this.density = density;
   }
-  getMassFuel() {
+  get MassFuel() {
     return this.volume * this.density;
   }
 }
@@ -107,8 +107,8 @@ class Auto {
     this.ownWeight = ownWeight;
     this.fuel = fuel;
   }
-  getAllAutoMass() {
-    return this.ownWeight + this.fuel.getMassFuel();
+  get AllAutoMass() {
+    return this.ownWeight + this.fuel.MassFuel();
   }
 }
 
