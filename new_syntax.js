@@ -68,3 +68,17 @@ class Auto {
 
 const benzin = new Fuel(50, 0.9);
 const auto = new Auto(2000, benzin);
+
+class Friend {
+  constructor(name, appleAmount, friend) {
+    this.name = name;
+    this.appleAmount = appleAmount;
+    this.friend = friend;
+  }
+  getAllAppleAmount(){
+    return this.appleAmount+this.friend.appleAmount
+  }
+}
+
+const myFriend = new Friend('Petr',40000);
+const me = new Friend('Vova',10,myFriend);
